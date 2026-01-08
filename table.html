@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StickWithIt – Calendar</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <h1>Calendar</h1>
+  <p id="date"></p>
+
+  <h3>Enter your goal:</h3>
+  <form>
+    <label for="fname">Goal:<br></label>
+    <input name="fNme" id="fname" value="" type="text"><br>
+  </form>
+
+  <div class="main-layout">
+
+    <!-- LEFT SIDE — CALENDAR -->
+    <div class="left-panel">
+      <div class="calendar-shell">
+        <div class="calendar-container">
+
+        <div class="time-column">
+          <div class="time-label"></div>
+          <div class="time-label">6:00</div>
+          <div class="time-label">7:00</div>
+          <div class="time-label">8:00</div>
+          <div class="time-label">9:00</div>
+          <div class="time-label">10:00</div>
+          <div class="time-label">11:00</div>
+          <div class="time-label">12:00</div>
+          <div class="time-label">13:00</div>
+          <div class="time-label">14:00</div>
+          <div class="time-label">15:00</div>
+          <div class="time-label">16:00</div>
+          <div class="time-label">17:00</div>
+          <div class="time-label">18:00</div>
+          <div class="time-label">19:00</div>
+          <div class="time-label">20:00</div>
+          <div class="time-label">21:00</div>
+          <div class="time-label">22:00</div>
+        </div>
+
+        <!-- THIS MUST EXIST OR ROWS WILL NOT GENERATE -->
+        <div class="calendar-grid">
+          <div class="day-header">Mon</div>
+          <div class="day-header">Tue</div>
+          <div class="day-header">Wed</div>
+          <div class="day-header">Thu</div>
+          <div class="day-header">Fri</div>
+          <div class="day-header">Sat</div>
+          <div class="day-header">Sun</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+    <!-- RIGHT SIDE — TASK CREATION + DAY ANALYSIS -->
+    <div class="label-panel">
+
+      <!-- TASK CREATION -->
+      <div class="label-box">
+        <h3>Task Creation</h3>
+
+        <form id="labelForm" onsubmit="return false;">
+          <div class="form-row">
+            <label for="labelName">Task name:</label>
+            <input id="labelName" type="text" placeholder="e.g. Math homework">
+          </div>
+
+          <div class="form-row">
+            <label for="labelType">Task type:</label>
+            <select id="labelType">
+              <option value="school">School</option>
+              <option value="work">Work</option>
+              <option value="personal">Personal</option>
+              <option value="health">Health</option>
+            </select>
+          </div>
+
+          <!-- THIS BUTTON ID MUST EXIST OR ADD TASK WILL NOT WORK -->
+          <button id="labelButtonCreation" type="button">Add task</button>
+        </form>
+
+        <p class="linked-input-title">Linked input:</p>
+        <input id="inputID" type="text" placeholder="Click a task tag to insert its name">
+
+        <!-- TASK TAG CONTAINER -->
+        <div id="labelContainer"></div>
+      </div>
+
+      <!-- DAY ANALYSIS BELOW -->
+      <div class="day-analysis">
+        <p class="section-title">Day Analysis</p>
+
+        <p>Did this day meet your expectations?</p>
+        <select id="bool">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+
+        <p>What could've been improved and how?</p>
+
+        <label for="key">Improvement:</label>
+        <input type="text" id="key" placeholder="Improvement">
+
+        <br><br>
+
+        <label for="value">Improvement Specifics:</label>
+        <textarea rows="4" cols="50" id="value"></textarea>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
