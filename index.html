@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StickWithIt</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="top-section">
+      <h1>Welcome back, User!</h1>
+      <p id="date"></p>
+    </div>
+
+    <div class="middle-section">
+
+      <button id="notes-button">Notes</button>
+
+      <!-- CENTER: PROFILE + CALENDAR + STICKY NOTE -->
+      <div class="button-column">
+        <button id="profile-button">
+          <span id="profileText">Profile</span>
+        </button>
+
+        <button id="calendar-button">Calendar</button>
+
+        <div class="sticky-note">
+          <h4>Next task</h4>
+          <p></p>
+        </div>
+      </div>
+
+      <!-- RIGHT: ANALYSIS BOXES -->
+      <div class="analysis-section">
+        <div class="analysis-box">Daily Analysis</div>
+        <div class="analysis-box">Weekly Analysis</div>
+      </div>
+
+    </div>
+  </div>
+
+  <p id="settings-link">Settings</p>
+
+  <script src="script.js"></script>
+  <script>
+    // Date
+    document.getElementById("date").textContent = new Date().toLocaleDateString();
+
+    // Navigation
+    document.getElementById("profile-button").addEventListener("click", () => {
+      window.location.href = "profile.html";
+    });
+
+    document.getElementById("calendar-button").addEventListener("click", () => {
+      window.location.href = "starter.html";
+    });
+
+    document.getElementById("notes-button").addEventListener("click", () => {
+      window.location.href = "notes.html";
+    });
+
+    // Avatar on the big profile button (if saved)
+    const savedProfile = JSON.parse(localStorage.getItem("stickWithItProfile") || "{}");
+    const profileBtn = document.getElementById("profile-button");
+    const profileText = document.getElementById("profileText");
+
+    if (savedProfile.avatarDataUrl) {
+      profileBtn.style.backgroundImage = `url('${savedProfile.avatarDataUrl}')`;
+      profileBtn.style.backgroundSize = "cover";
+      profileBtn.style.backgroundPosition = "center";
+      profileBtn.style.color = "transparent";
+      profileText.style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
